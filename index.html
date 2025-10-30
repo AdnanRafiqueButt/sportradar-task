@@ -12,27 +12,354 @@
     <a href="#" class="navbar-logo">
       <img alt="Sportradar Logo" src="./assets/images/sports-radar-logo.svg" />
     </a>
-    <button class="navbar-menu-toggle" id="navbarMenuToggle">☰</button>
+    <button class="navbar-menu-toggle" onclick="toggleClass('navbarMenu', 'active')">☰</button>
     <nav class="navbar-menu" id="navbarMenu">
-      <div class="navbar-menu-item"><button>Calendar</button></div>
-      <div class="navbar-menu-item"><button>Add Event</button></div>
+      <div class="navbar-menu-item"><button type="button" onclick="showSection('calendarSection')">Calendar</button></div>
+      <div class="navbar-menu-item"><button type="button" onclick="showSection('addEventSection')">Add Event</button></div>
     </nav>
   </header>
   <main>
     <!-- Hero Section -->
     <section class="hero-section">
+      <!-- Hero BG Video -->
       <video autoplay muted loop playsinline class="hero-bg-video">
         <source src="./assets/videos/sr-promo.mp4" type="video/mp4" />
         Your browser does not support the video tag.
       </video>
+      <!-- Hero Overlay Content -->
       <div class="hero-content">
         <h1>Welcome to <span>Sportradar</span></h1>
         <h4>The World’s <span>Leading Sports Technology</span> Company</h4>
       </div>
     </section>
+    <!-- Calendar Section -->
+    <section class="container page-section"  id="calendarSection">
+      <h2 class="section-title">Calendar</h2>
+      <!-- Calendar Header -->
+      <div class="calendar-header">
+        <div class="calendar-header-left">
+          <button class="btn btn-month btn-slide-left" aria-label="Previous month"><</button>
+          <button class="btn btn-month" aria-label="Next month">></button>
+          <h4 class="current-month">November 2025</h4>
+        </div>
+        <button type="button" class="btn" onclick="showSection('addEventSection')">Add Event →</button>
+      </div>
+      <!-- Calendar Grid -->
+      <div class="calendar-scroll">
+        <div class="calendar-grid">
+          <!-- Calendar Weekday header -->
+          <div class="calendar-day-name">Mon</div>
+          <div class="calendar-day-name">Tue</div>
+          <div class="calendar-day-name">Wed</div>
+          <div class="calendar-day-name">Thu</div>
+          <div class="calendar-day-name">Fri</div>
+          <div class="calendar-day-name">Sat</div>
+          <div class="calendar-day-name">Sun</div>
+          <!-- Calendar Row 1 -->
+          <div class="calendar-day empty" aria-disabled="true"></div>
+          <div class="calendar-day has-event" onclick="showSection('dayEventsSection')">
+            <span class="date">1</span>
+            <div class="event-wrapper">
+              <div class="event">Al Duhail vs Al Rayyan Al Shabab vs Nasaf</div>
+              <div class="event">Al Duhail vs Al Rayyan Al Shabab vs Nasaf</div>
+              <div class="event">Al Duhail vs Al Rayyan Al Shabab vs Nasaf</div>
+              <div class="event">Al Duhail vs Al Rayyan Al Shabab vs Nasaf</div>
+              <div class="event">Al Duhail vs Al Rayyan Al Shabab vs Nasaf</div>
+              <div class="event">Al Duhail vs Al Rayyan Al Shabab vs Nasaf</div>
+            </div>
+          </div>
+          <div class="calendar-day">
+            <span class="date">2</span>
+          </div>
+          <div class="calendar-day has-event">
+            <span class="date">3</span>
+            <div class="event">Al Shabab vs Nasaf</div>
+            <div class="event">Al Shabab vs Nasaf</div>
+            <div class="event">Al Shabab vs Nasaf</div>
+          </div>
+          <div class="calendar-day">
+            <span class="date">4</span>
+          </div>
+          <div class="calendar-day">
+            <span class="date">5</span>
+          </div>
+          <div class="calendar-day">
+            <span class="date">6</span>
+          </div>
+          <!-- Row 2 -->
+          <div class="calendar-day">
+            <span class="date">7</span>
+          </div>
+          <div class="calendar-day">
+            <span class="date">8</span>
+          </div>
+          <div class="calendar-day">
+            <span class="date">9</span>
+          </div>
+          <div class="calendar-day">
+            <span class="date">10</span>
+          </div>
+          <div class="calendar-day">
+            <span class="date">11</span>
+          </div>
+          <div class="calendar-day">
+            <span class="date">12</span>
+          </div>
+          <div class="calendar-day">
+            <span class="date">13</span>
+          </div>
+          <!-- Row 3 -->
+          <div class="calendar-day">
+            <span class="date">14</span>
+          </div>
+          <div class="calendar-day">
+            <span class="date">15</span>
+          </div>
+          <div class="calendar-day">
+            <span class="date">16</span>
+          </div>
+          <div class="calendar-day">
+            <span class="date">17</span>
+          </div>
+          <div class="calendar-day has-event">
+            <span class="date">18</span>
+            <div class="event">Al Duhail vs Al Rayyan Al Shabab vs Nasaf</div>
+          </div>
+          <div class="calendar-day">
+            <span class="date">19</span>
+          </div>
+          <div class="calendar-day">
+            <span class="date">20</span>
+          </div>
+          <!-- Row 4 -->
+          <div class="calendar-day">
+            <span class="date">21</span>
+          </div>
+          <div class="calendar-day">
+            <span class="date">22</span>
+          </div>
+          <div class="calendar-day has-event">
+            <span class="date">23</span>
+            <div class="event">Urawa Reds Final</div>
+          </div>
+          <div class="calendar-day">
+            <span class="date">24</span>
+          </div>
+          <div class="calendar-day">
+            <span class="date">25</span>
+          </div>
+          <div class="calendar-day">
+            <span class="date">26</span>
+          </div>
+          <div class="calendar-day">
+            <span class="date">27</span>
+          </div>
+          <!-- Row 5 -->
+          <div class="calendar-day">
+            <span class="date">28</span>
+          </div>
+          <div class="calendar-day">
+            <span class="date">29</span>
+          </div>
+          <div class="calendar-day">
+            <span class="date">30</span>
+          </div>
+          <div class="calendar-day empty" aria-disabled="true"></div>
+          <div class="calendar-day empty" aria-disabled="true"></div>
+          <div class="calendar-day empty" aria-disabled="true"></div>
+          <div class="calendar-day empty" aria-disabled="true"></div>
+        </div>
+      </div>
+    </section>
+    <!-- Day Events List Section -->
+    <section class="container page-section hidden" id="dayEventsSection">
+      <h2 class="section-title">Events on <span class="accent">November 3, 2025</span></h2>
+      <!-- List Of Events -->
+      <div class="day-events-list">
+        <!-- Event Card 1 -->
+        <div class="day-event-card" onclick="showSection('eventDetailsSection')">
+          <div class="event-info-left">
+            <h4>Al Hilal vs Shabab Al Ahli</h4>
+            <p>Football · AFC Champions League</p>
+          </div>
+          <div class="event-info-right">
+            <span class="event-time">16:00 UTC</span>
+            <span class="event-status">Scheduled</span>
+          </div>
+        </div>
+        <!-- Event Card 2 -->
+        <div class="day-event-card" onclick="showSection('eventDetailsSection')">
+          <div class="event-info-left">
+            <h4>Al Duhail vs Al Rayyan</h4>
+            <p>Football · Round of 16</p>
+          </div>
+          <div class="event-info-right">
+            <span class="event-time">15:25 UTC</span>
+            <span class="event-status">Scheduled</span>
+          </div>
+        </div>
+        <!-- Event Card 3 -->
+        <div class="day-event-card" onclick="showSection('eventDetailsSection')">
+          <div class="event-info-left">
+            <h4>Al Shabab vs Nasaf</h4>
+            <p>Football · AFC Champions League</p>
+          </div>
+          <div class="event-info-right">
+            <span class="event-time">00:00 UTC</span>
+            <span class="event-status played">Played</span>
+          </div>
+        </div>
+      </div>
+      <!-- Day Events Footer -->
+      <div class="day-events-footer">
+        <button class="btn btn-slide-left" type="button" onclick="showSection('calendarSection')">← Back to Calendar</button>
+      </div>
+    </section>
+    <!-- Event Details Section -->
+    <section class="container page-section hidden" id="eventDetailsSection">
+      <h2 class="section-title">Event Details</h2>
+      <!-- Event Details Card -->
+      <div class="event-details-card">
+        <div class="event-details-top">
+          <h3><span>Team A</span> VS <span>Team B</span></h3>
+        </div>
+        <div class="event-info-grid">
+          <div class="event-info-item">
+            <h4>Date</h4>
+            <p>2025-11-03</p>
+          </div>
+          <div class="event-info-item">
+            <h4>Time (UTC)</h4>
+            <p>16:00</p>
+          </div>
+          <div class="event-info-item">
+            <h4>Sport</h4>
+            <p>Football</p>
+          </div>
+          <div class="event-info-item">
+            <h4>Competition</h4>
+            <p>AFC Champions League</p>
+          </div>
+          <div class="event-info-item">
+            <h4>Season</h4>
+            <p>2026</p>
+          </div>
+          <div class="event-info-item">
+            <h4>Stadium</h4>
+            <p>—</p>
+          </div>
+          <div class="event-info-item">
+            <h4>Stage</h4>
+            <p>Round of 16</p>
+          </div>
+          <div class="event-info-item">
+            <h4>Status</h4>
+            <p>Scheduled</p>
+          </div>
+        </div>
+        <div class="event-info-teams">
+          <div class="event-team-card event-team-home">
+            <h4>Home Team</h4>
+            <p>Al Hilal Saudi FC</p>
+            <span>KSA</span>
+          </div>
+          <div class="event-team-card team-away">
+            <h4>Away Team</h4>
+            <p>Shabab Al Ahli</p>
+            <span>UAE</span>
+          </div>
+        </div>
+        <div class="event-result-info">
+          <h4>Match Result</h4>
+          <p><span>0</span> - <span>0</span></p>
+        </div>
+        <div class="event-details-footer">
+          <button class="btn btn-slide-left" type="button" onclick="showSection('calendarSection')">← Back to Calendar</button>
+        </div>
+      </div>
+    </section>
+    <!-- Add Event Section -->
+    <section class="container page-section hidden" id="addEventSection">
+      <div class="add-event-header">
+        <h2 class="section-title">Add <span class="accent">New Event</span></h2>
+      </div>
+      <!-- Add Event Form Card -->
+      <div class="add-event-card">
+        <!-- Success Message -->
+        <div id="successBanner" class="success-banner hidden">
+          Event Added Successfully!
+        </div>
+        <!-- Add Event Form -->
+        <form class="add-event-form" id="addEventForm" autocomplete="off" novalidate>
+          <div class="add-event-field">
+            <label for="sport">Sport</label>
+            <select name="sport" required>
+              <option value="" disabled selected>Select Sport</option>
+              <option value="football">Football</option>
+              <option value="ice-hockey">Ice Hockey</option>
+              <option value="basketball">Basketball</option>
+              <option value="tennis">Tennis</option>
+            </select>
+            <small class="error-text">This field is required</small>
+          </div>
+          <div class="add-event-field">
+            <label for="competition">Competition</label>
+            <input type="text" name="competition" placeholder="Champions League" required />
+            <small class="error-text">This field is required</small>
+          </div>
+          <div class="add-event-field">
+            <label for="stage">Stage / Round</label>
+            <input type="text" name="stage" placeholder="Round of 16" />
+          </div>
+          <div class="add-event-row">
+            <div class="add-event-field">
+              <label for="date">Date</label>
+              <input type="date" name="dateVenue" required />
+              <small class="error-text">This field is required</small>
+            </div>
+            <div class="add-event-field">
+              <label for="time">Time</label>
+              <input type="time" name="timeVenueUTC" required />
+              <small class="error-text">This field is required</small>
+            </div>
+          </div>
+          <div class="add-event-row">
+            <div class="add-event-field">
+              <label for="homeTeam">Home Team</label>
+              <input type="text" name="homeTeam" placeholder="Team Vienna" required />
+              <small class="error-text">This field is required</small>
+            </div>
+            <div class="add-event-field">
+              <label for="awayTeam">Away Team</label>
+              <input type="text" name="awayTeam" placeholder="Team Barcelona" required />
+              <small class="error-text">This field is required</small>
+            </div>
+          </div>
+          <div class="add-event-field">
+            <label for="stadium">Stadium</label>
+            <input type="text" name="stadium" placeholder="Vienna Stadium" />
+          </div>
+          <div class="add-event-field">
+            <label for="status">Status</label>
+            <select name="status" required>
+              <option value="" disabled selected>Select Status</option>
+              <option value="scheduled">Scheduled</option>
+              <option value="played">Played</option>
+              <option value="postponed">Postponed</option>
+            </select>
+            <small class="error-text">This field is required</small>
+          </div>
+          <div class="add-event-submit">
+            <button type="submit" class="btn">Add Event →</button>
+          </div>
+        </form>
+      </div>
+      <div class="add-event-back">
+        <button class="btn btn-accent btn-slide-left" onclick="showSection('calendarSection')">← Back to Calendar</button>
+      </div>
+    </section>
   </main>
-
-  <script src="js/main.js"></script>
-  <script src="js/data.js"></script>
+  <script src="js/add-event.js" defer></script>
+  <script src="js/main.js" defer></script>
 </body>
 </html>

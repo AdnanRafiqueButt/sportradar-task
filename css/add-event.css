@@ -51,8 +51,8 @@
   box-shadow: 0 0 6px rgba(0, 0, 60, 0.35);
 }
 
-.add-event-field.invalid input:invalid,
-.add-event-field.invalid select:invalid {
+.add-event-field.invalid input,
+.add-event-field.invalid select {
   outline: none;
   border-color: var(--color-accent);
   box-shadow: 0 0 6px rgba(255, 0, 0, 0.35);

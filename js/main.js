@@ -1,21 +1,21 @@
 // All common functions are defined here
 
 // Toggle Class on Element
-function toggleClass(id, removeClass, addClass) {
-  const el = document.getElementById(id);
-  if (!el) return;
+function toggleClass(selector, removeClass, addClass) {
+  const element = document.querySelector(selector);
+  if (!element) return;
 
   if (addClass) {
-    el.classList.remove(removeClass);
-    el.classList.add(addClass);
+    element.classList.remove(removeClass);
+    element.classList.add(addClass);
   } else {
-    el.classList.toggle(removeClass);
+    element.classList.toggle(removeClass);
   }
 }
 
 // Scroll to Section
-function scrollToSection(sectionId) {
-  const section = document.getElementById(sectionId);
+function scrollToSection(selector) {
+  const section = document.querySelector(selector);
   section?.scrollIntoView({ behavior: "smooth", block: "start" });
 }
 
@@ -26,8 +26,8 @@ function hideAllSections() {
 }
 
 // Show Section
-function showSection(id) {
-  const section = document.getElementById(id);
+function showSection(selector) {
+  const section = document.querySelector(selector);
   const navMenu = document.getElementById("navbarMenu");
 
   if (navMenu?.classList.contains("active")) {
@@ -37,6 +37,46 @@ function showSection(id) {
   hideAllSections();
   if (section) {
     section.classList.remove("hidden");
-    scrollToSection(id);
+    scrollToSection(selector);
   }
+}
+
+// Get stored user events
+function getStoredEvents() {
+  const stored = localStorage.getItem("userEvents");
+  return stored ? JSON.parse(stored) : [];
+}
+
+// Save new event to localStorage
+function saveEventToStorage(eventObj) {
+  const stored = getStoredEvents();
+  stored.push(eventObj);
+  localStorage.setItem("userEvents", JSON.stringify(stored));
+}
+
+// Generate ID for events, with competition + date + teams
+function generateEventId(event) {
+  const comp =
+    (event.originCompetitionId || event.originCompetitionName || "competition")
+      .toString()
+      .trim()
+      .toLowerCase()
+      .replace(/\s+/g, "-");
+
+  const date = (event.dateVenue || "no-date").toString().trim();
+
+  const home = (event.homeTeam?.name || "home")
+    .toString()
+    .trim()
+    .toLowerCase()
+    .replace(/\s+/g, "");
+
+  const away = (event.awayTeam?.name || "away")
+    .toString()
+    .trim()
+    .toLowerCase()
+    .replace(/\s+/g, "");
+
+  // Example: champions-league-2025-11-03-ateam-vs-bteam
+  return `${comp}-${date}-${home}-vs-${away}`;
 }

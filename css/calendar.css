@@ -47,6 +47,7 @@
   grid-template-columns: repeat(7, minmax(120px, 1fr));
   gap: 8px;
   min-width: 7 * 120px;
+  transition: opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .calendar-day-name {
@@ -139,6 +140,7 @@
   white-space: nowrap;
   overflow: hidden;
   min-height: 13px;
+  transition: background-color 0.25s ease-in-out
 }
 
 .event:hover {

@@ -151,6 +151,19 @@ input[type=number] {
   -moz-appearance: textfield;
 }
 
+/* Status Color */
+.scheduled {
+  color: #ffb400;
+}
+
+.played {
+  color: #28a745;
+}
+
+.postponed {
+  color: #f44336;
+}
+
 /* Responsive Breakpoints */
 
 /* For Tabs */

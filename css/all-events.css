@@ -1,0 +1,190 @@
+.all-events-layout {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 30px;
+  align-items: start;
+  margin-top: 30px;
+}
+
+.all-events-layout .filters-sidebar {
+  background: var(--color-dark);
+  color: var(--color-light);
+  padding: 25px 20px;
+  border-radius: 16px;
+  box-shadow: 0 6px 25px rgba(0, 0, 60, 0.4);
+  position: sticky;
+  top: 90px;
+}
+
+.filters-sidebar .filter-title {
+  font-size: 22px;
+  margin-bottom: 20px;
+  color: var(--color-accent);
+}
+
+.filters-sidebar .filter-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 18px;
+}
+
+.filters-sidebar .filter-group label {
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.filters-sidebar .filter-group select,
+.filters-sidebar .filter-group input[type="date"] {
+  background: var(--color-light);
+  color: var(--color-dark);
+  border: none;
+  border-radius: 6px;
+  padding: 8px;
+  font-size: 14px;
+  outline: none;
+}
+
+.filters-sidebar .filter-group select:focus,
+.filters-sidebar .filter-group input[type="date"]:focus {
+  border: 1px solid var(--color-accent);
+}
+
+.filters-sidebar .filter-dates {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.filters-sidebar .filter-date-item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.filters-sidebar .filter-date-item label {
+  font-size: 13px;
+  color: var(--color-accent);
+  font-weight: 600;
+  margin-bottom: 0;
+}
+
+.filters-sidebar .clear-btn {
+  width: 100%;
+  margin-top: 10px;
+  font-size: 14px;
+  padding: 8px 0;
+}
+
+.filters-sidebar .clear-btn.hidden {
+  display: none;
+}
+
+.no-events-box {
+  grid-column: 1 / -1;
+  background: var(--color-dark);
+  color: var(--color-light);
+  border: 1px solid var(--color-accent);
+  border-radius: 12px;
+  padding: 40px 30px;
+  text-align: center;
+  box-shadow: 0 4px 20px rgba(0, 0, 60, 0.4);
+}
+
+
+.no-events-text {
+  font-weight: 700;
+  color: var(--color-accent);
+  margin-bottom: 6px;
+}
+
+.no-events-sub {
+  font-size: 14px;
+  color: var(--color-light);
+}
+
+.all-events-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
+  gap: 25px;
+}
+
+.all-events-list .event-card {
+  background: var(--color-dark);
+  color: var(--color-light);
+  padding: 25px 20px;
+  border-radius: 14px;
+  box-shadow: 0 6px 25px rgba(0, 0, 60, 0.4);
+  border-left: 5px solid var(--color-accent);
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition:
+  background-color 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+  color 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+  transform 0.25s cubic-bezier(0.4, 0, 0.2, 1),
+  box-shadow 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.all-events-list .event-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 35px rgba(0, 0, 60, 0.5);
+  background: var(--color-light);
+  color: var(--color-dark);
+}
+
+.all-events-list .event-card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--color-accent);
+}
+
+.all-events-list .event-card-title {
+  font-weight: 700;
+  margin: 8px 0 6px;
+  color: var(--color-light);
+  text-transform: capitalize;
+}
+
+.all-events-list .event-card-competition {
+  font-size: 14px;
+  color: var(--color-accent);
+  font-weight: 500;
+  margin-bottom: 12px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.all-events-list .event-card:hover .event-card-title,
+.all-events-list .event-card:hover .event-card-competition {
+  color: var(--color-dark);
+}
+
+.all-events-list .event-card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 13px;
+  font-weight: 700;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 8px;
+  color: var(--color-accent);
+  text-transform: capitalize;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .all-events-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .all-events-layout .filters-sidebar {
+    position: unset;
+  }
+}

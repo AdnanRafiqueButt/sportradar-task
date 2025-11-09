@@ -69,6 +69,12 @@ async function openEventDetails(eventId, fromSection = "calendarSection") {
       showSection("#dayEventsSection");
       renderDayEvents(event.dateVenue);
     };
+  } else if (fromSection === "allEventsSection") {
+    backBtn.textContent = "← Back to All Events";
+    backBtn.onclick = () => {
+      card.classList.remove("visible");
+      showSection("#allEventsSection");
+    };
   } else {
     backBtn.textContent = "← Back to Calendar";
     backBtn.onclick = () => {

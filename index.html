@@ -17,6 +17,7 @@
     <button class="navbar-menu-toggle" onclick="toggleClass('#navbarMenu', 'active')">☰</button>
     <nav class="navbar-menu" id="navbarMenu">
       <div class="navbar-menu-item"><button type="button" onclick="showSection('#calendarSection')">Calendar</button></div>
+      <div class="navbar-menu-item"><button type="button" onclick="showSection('#allEventsSection')">All Events</button></div>
       <div class="navbar-menu-item"><button type="button" onclick="showSection('#addEventSection')">Add Event</button></div>
     </nav>
   </header>
@@ -154,11 +155,70 @@
         <button class="btn btn-accent btn-slide-left" onclick="showSection('#calendarSection')">← Back to Calendar</button>
       </div>
     </section>
+    <!-- All Events Section -->
+    <section class="container page-section hidden" id="allEventsSection">
+      <div class="all-events-header">
+        <h2 class="section-title">All <span class="accent">Events</span></h2>
+      </div>
+      <div class="all-events-layout">
+        <!-- Sidebar Filters -->
+        <aside class="filters-sidebar">
+          <h4 class="filter-title">Filters</h3>
+          <div class="filter-group">
+            <label for="filterSport">Sport Type</label>
+            <select id="filterSport">
+              <option value="">All Sports</option>
+              <option value="Football">Football</option>
+              <option value="Basketball">Basketball</option>
+              <option value="Tennis">Tennis</option>
+              <option value="Ice Hockey">Ice Hockey</option>
+            </select>
+          </div>
+          <div class="filter-group">
+            <label for="filterStatus">Status</label>
+            <select id="filterStatus">
+              <option value="">All Status</option>
+              <option value="Scheduled">Scheduled</option>
+              <option value="Played">Played</option>
+              <option value="Postponed">Postponed</option>
+            </select>
+          </div>
+          <div class="filter-group">
+            <label>Date Range</label>
+            <div class="filter-dates">
+              <div class="filter-date-item">
+                <label for="filterFromDate">From</label>
+                <input type="date" id="filterFromDate" />
+              </div>
+              <div class="filter-date-item">
+                <label for="filterToDate">To</label>
+                <input type="date" id="filterToDate" />
+              </div>
+            </div>
+          </div>
+          <div class="filter-group">
+            <label for="sortBy">Sort By</label>
+            <select id="sortBy">
+              <option value="dateAsc">Date (Oldest → Newest)</option>
+              <option value="dateDesc">Date (Newest → Oldest)</option>
+            </select>
+          </div>
+          <button id="clearFiltersBtn" class="btn btn-accent btn-slide-left clear-btn hidden">Clear Filters</button>
+        </aside>
+        <!-- Events Grid -->
+        <div class="all-events-content">
+          <div class="all-events-list" id="allEventsList">
+            <!-- All Events list will be dynamically generated here -->
+          </div>
+        </div>
+      </div>
+    </section>
   </main>
   <script src="js/add-event.js" defer></script>
   <script src="js/calendar.js" defer></script>
   <script src="js/day-events.js" defer></script>
   <script src="js/event-detail.js" defer></script>
+  <script src="js/all-events.js" defer></script>
   <script src="js/main.js" defer></script>
 </body>
 </html>

@@ -114,5 +114,8 @@ addEventForm.addEventListener("submit", (e) => {
   // Reset & show success
   addEventForm.reset();
   showSuccessBanner();
+
+  // Rerender Calendar and All Events
   renderCalendar(currentDate);
+  initialRenderAllEvents();
 });

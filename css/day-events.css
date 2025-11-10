@@ -17,6 +17,7 @@
   justify-content: space-between;
   align-items: center;
   cursor: pointer;
+  text-transform: capitalize;
   transition:
     background-color 0.35s cubic-bezier(0.4, 0, 0.2, 1),
     color 0.35s cubic-bezier(0.4, 0, 0.2, 1),
@@ -54,12 +55,8 @@
 
 .event-info-right .event-status {
   font-size: 14px;
-  opacity: 0.8;
-  margin-top: 4px;
-}
-
-.event-status.played {
-  color: var(--color-accent);
+  font-weight: 600;
+  margin-top: 6px;
 }
 
 .day-events-footer {

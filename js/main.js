@@ -54,6 +54,18 @@ function saveEventToStorage(eventObj) {
   localStorage.setItem("userEvents", JSON.stringify(stored));
 }
 
+// Load events from the JSON file
+async function loadJsonEvents() {
+  try {
+    const response = await fetch("./data/events-data.json");
+    const json = await response.json();
+    return json.data || [];
+  } catch (error) {
+    console.error("Error loading JSON events:", error);
+    return [];
+  }
+}
+
 // Generate ID for events, with competition + date + teams
 function generateEventId(event) {
   const comp =
@@ -79,4 +91,17 @@ function generateEventId(event) {
 
   // Example: champions-league-2025-11-03-ateam-vs-bteam
   return `${comp}-${date}-${home}-vs-${away}`;
+}
+
+// Merging JSON events with Locally stored events
+async function getAllEvents() {
+  const jsonEvents  = await loadJsonEvents();
+  const localEvents = getStoredEvents();
+
+  const mergedEvents = [...jsonEvents, ...localEvents].map(event => {
+    if (!event.id) event.id = generateEventId(event);
+    return event;
+  });
+
+  return mergedEvents;
 }

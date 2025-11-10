@@ -17,8 +17,8 @@
     <button class="navbar-menu-toggle" onclick="toggleClass('#navbarMenu', 'active')">☰</button>
     <nav class="navbar-menu" id="navbarMenu">
       <div class="navbar-menu-item"><button type="button" onclick="showSection('#calendarSection')">Calendar</button></div>
-      <div class="navbar-menu-item"><button type="button" onclick="showSection('#allEventsSection')">All Events</button></div>
-      <div class="navbar-menu-item"><button type="button" onclick="showSection('#addEventSection')">Add Event</button></div>
+      <div class="navbar-menu-item"><button type="button" onclick="renderAllEvents(); showSection('#allEventsSection');">All Events</button></div>
+      <div class="navbar-menu-item"><button type="button" onclick="resetAddForm(); showSection('#addEventSection');">Add Event</button></div>
     </nav>
   </header>
   <main>
@@ -45,7 +45,7 @@
           <button class="btn btn-month" aria-label="Next month" id="nextMonthBtn">></button>
           <h4 class="current-month" id="currentMonth"></h4>
         </div>
-        <button type="button" class="btn" onclick="showSection('#addEventSection')">Add Event →</button>
+        <button type="button" class="btn" onclick="resetAddForm(); showSection('#addEventSection');">Add Event →</button>
       </div>
       <!-- Calendar Grid -->
       <div class="calendar-scroll">
@@ -92,9 +92,9 @@
             <select name="sport" id="sport" required>
               <option value="" disabled selected>Select Sport</option>
               <option value="Football">Football</option>
-              <option value="Ice Hockey">Ice Hockey</option>
               <option value="Basketball">Basketball</option>
               <option value="Tennis">Tennis</option>
+              <option value="Ice Hockey">Ice Hockey</option>
             </select>
             <small class="error-text">This field is required</small>
           </div>
@@ -152,7 +152,7 @@
         </form>
       </div>
       <div class="add-event-back">
-        <button class="btn btn-accent btn-slide-left" onclick="showSection('#calendarSection')">← Back to Calendar</button>
+        <button class="btn btn-accent btn-slide-left" onclick="showSection('#calendarSection'); resetAddForm();">← Back to Calendar</button>
       </div>
     </section>
     <!-- All Events Section -->

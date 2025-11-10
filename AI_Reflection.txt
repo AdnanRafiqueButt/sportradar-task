@@ -1,0 +1,36 @@
+Overview:
+This project Sports Event Management System was built using HTML, CSS and Vanilla JavaScript, with ChatGPT (AI) used as a learning and support tool.
+I directed the structure, logic and functionality of every section, while using AI to refine syntax, improve UI and speed up development.
+All features and functions were understood, tested and customized by me.
+
+My Contribution:
+-I built and customized all major features of the project — including calendar rendering, event listing, filtering, event details and the add event functionality in close collaboration with AI. While AI assisted in generating initial logic and structure, I took full responsibility for developing, reviewing, understanding and customizing every piece of code to ensure it aligned with my project’s functionality, consistency and performance goals.
+-I merged LocalStorage with static JSON data to enable persistent event management, ensuring that user-created events were retained across sessions.
+-I structured and designed all the main HTML sections Calendar, All Events, Add Event, Event Details and Day Events with design and layout support from AI, adapting and refining each section to create a clean, user-friendly and consistent interface.
+-I also implemented and debugged key logic features such as form validation, dynamic fields that adapt to user input and section navigation between different parts of the application. Throughout development, I personally tested each interaction and fixed inconsistencies to ensure that web-flow, filters and transitions worked smoothly and intuitively.
+-I refactored and organized the JavaScript code into multiple modular files for better clarity, readability and maintainability. This modular approach helped me keeping the code clean and scalable.
+
+Overall, I used AI as a learning and support tool, but every concept, decision and structural choice in this project was made by me after careful review and understanding.
+
+AI Assistance:
+-AI primarily ChatGPT, played a significant role as a coding assistant and learning companion throughout the development of this project. I used AI to help me understand new concepts, improve my problem-solving approach and refine both my code and design decisions.
+-AI was used to generate initial drafts of complex logic, such as calendar rendering, event filtering and form validation. However, every piece of AI-generated code was carefully reviewed, tested and customized by me to ensure that I fully understood its purpose, logic and integration with other parts of the project.
+-AI provided CSS improvement suggestions, including ideas for transitions, hover effects and responsive layouts. I implemented, adjusted and visually tested each suggestion to fit the project’s overall style and ensure a consistent user experience across all screen sizes.
+-AI also helped me debug logical and UI issues, such as input validation errors, section visibility problems and filter inconsistencies. Instead of giving me direct fixes, it guided me through the reasoning process helping me learn why certain issues were happening and how to solve them effectively.
+
+Beyond code, AI contributed to documentation and presentation, helping me draft a professional README file and refine this reflection file.
+
+Overall, AI acted as a collaborative support tool, not a code generator. Every implementation in this project was done with full understanding and hands-on testing. I used AI responsibly to speed up development, learn better practices and ensure high-quality, maintainable code.
+
+Technical Decisions:
+  -No frameworks used, I intentionally chose pure JavaScript to demonstrate understanding of core fundamentals of web development.
+  -Used LocalStorage to persist data between sessions.
+  -Split logic into modular files for maintainability.
+  -Chose a Sportradar-inspired dark theme with a Google Calendar-style view for familiarity.
+
+Improvements with More Time:
+  -Add automated tests using Jest or Cypress
+  -Add edit and delete functionality for events
+  -Connect with real sports APIs for live event data
+  -Add authentication for multi-user access
+  -Improve mobile user interface and animations

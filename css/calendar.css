@@ -130,7 +130,7 @@
   display: none;
 }
 
-.event {
+.date-event {
   background: var(--color-dark);
   color: var(--color-light);
   font-size: 12px;
@@ -140,12 +140,22 @@
   white-space: nowrap;
   overflow: hidden;
   min-height: 13px;
-  transition: background-color 0.25s ease-in-out
+  transition: background-color 0.25s ease-in-out;
+  text-transform: capitalize;
 }
 
-.event:hover {
+.date-event span{
+  color: var(--color-accent);
+  font-weight: 600;
+}
+
+.date-event:hover {
   background: var(--color-accent);
   cursor: pointer;
+}
+
+.date-event:hover span {
+  color: var(--color-light);
 }
 
 /* Responsive */
@@ -163,7 +173,7 @@
   .calendar-day { 
     height: 100px; 
   }
-  .event { 
+  .date-event { 
     font-size: 11px; 
   }
   .calendar-header {
@@ -208,7 +218,7 @@
   .date { 
     font-size: 12px; 
   }
-  .event { 
+  .date-event { 
     font-size: 10px; 
   }
 }

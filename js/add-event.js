@@ -24,7 +24,7 @@ function attachLiveValidation(root = document) {
   });
 }
 
-attachLiveValidation();
+attachLiveValidation(addEventForm);
 
 // Game Status Change Event to show/hide result inputs
 statusSelect.addEventListener("change", () => {
@@ -48,7 +48,7 @@ statusSelect.addEventListener("change", () => {
     attachLiveValidation(resultContainer);
   } else {
     resultContainer.innerHTML = "";
-    attachLiveValidation();
+    attachLiveValidation(addEventForm);
   }
 });
 
@@ -75,7 +75,7 @@ addEventForm.addEventListener("submit", (e) => {
   // Event object from form data entries
   const formData = new FormData(addEventForm);
   const eventObj = {
-    season: 2026,
+    season: new Date(formData.get("dateVenue")).getFullYear(),
     status: formData.get("status"),
     timeVenueUTC: formData.get("timeVenueUTC"),
     dateVenue: formData.get("dateVenue"),
@@ -111,11 +111,25 @@ addEventForm.addEventListener("submit", (e) => {
   // Save to localStorage
   saveEventToStorage(eventObj);
 
-  // Reset & show success
+  // Reset inputs & show success
   addEventForm.reset();
   showSuccessBanner();
 
   // Rerender Calendar and All Events
   renderCalendar(currentDate);
-  initialRenderAllEvents();
+  renderAllEvents();
 });
+
+// Reseting Add Event Form
+function resetAddForm() {
+  // Reset all inputs
+  addEventForm.reset();
+  // Remove invalid class from fields
+  addEventForm.querySelectorAll(".add-event-field.invalid").forEach((wrapper) => {
+      wrapper.classList.remove("invalid");
+    });
+  // Reset dynamic fields
+  document.getElementById("resultFieldsContainer").innerHTML = "";
+  // Re-attach live validation
+  attachLiveValidation(addEventForm);
+}

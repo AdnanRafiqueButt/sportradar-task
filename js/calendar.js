@@ -13,31 +13,6 @@ const monthNames = [
   "July", "August", "September", "October", "November", "December"
 ];
 
-// Load events from the JSON file
-async function loadJsonEvents() {
-  try {
-    const response = await fetch("./data/events-data.json");
-    const json = await response.json();
-    return json.data || [];
-  } catch (error) {
-    console.error("Error loading JSON events:", error);
-    return [];
-  }
-}
-
-// Merging JSON events with Locally stored events
-async function getAllEvents() {
-  const jsonEvents  = await loadJsonEvents();
-  const localEvents = getStoredEvents();
-
-  const mergedEvents = [...jsonEvents, ...localEvents].map(event => {
-    if (!event.id) event.id = generateEventId(event);
-    return event;
-  });
-
-  return mergedEvents;
-}
-
 // Converts the events list into Groups { "2025-11-03": ["Team1 vs Team2", ...] }
 function groupEventsByDate(events) {
   const grouped = {};
@@ -50,15 +25,8 @@ function groupEventsByDate(events) {
       grouped[date] = [];
     }
 
-    // Get home and away names safely
-    const home = event.homeTeam && event.homeTeam.name ? event.homeTeam.name : "TBD";
-    const away = event.awayTeam && event.awayTeam.name ? event.awayTeam.name : "TBD";
-
     // Add event to the date's array
-    grouped[date].push({
-      id: event.id || generateEventId(event),
-      label: `${home} vs ${away}`
-    });
+    grouped[date].push(event);
   });
 
   return grouped;
@@ -116,7 +84,9 @@ async function renderCalendar(date = new Date()) {
           <div class="event-wrapper">
             ${dayEvents
               .map(function (event) {
-                return `<div class="event" onclick="event.stopPropagation();  openEventDetails('${event.id}', 'calendarSection')">${event.label}</div>`;
+                const home = event.homeTeam?.name || "TBD";
+                const away = event.awayTeam?.name || "TBD";
+                return `<div class="date-event" onclick="event.stopPropagation();  openEventDetails('${event.id}', 'calendarSection')">${home} <span>Vs</span> ${away}</div>`;
               })
               .join("")}
           </div>

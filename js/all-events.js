@@ -7,7 +7,7 @@ const filterToDate = document.getElementById("filterToDate");
 const sortBy = document.getElementById("sortBy");
 const clearFiltersBtn = document.getElementById("clearFiltersBtn");
 
-// Render the all events grid
+// Render the events grid
 function renderEvents(events) {
   if (!events || events.length === 0) {
     allEventsList.innerHTML = `
@@ -98,7 +98,7 @@ async function applyFilters() {
 }
 
 // Reset all filter
-async function initialRenderAllEvents() {
+async function renderAllEvents() {
   const allEvents = await getAllEvents();
   filterSport.value = "";
   filterStatus.value = "";
@@ -112,7 +112,7 @@ async function initialRenderAllEvents() {
 
 // Clear all filters
 clearFiltersBtn.addEventListener("click", async () => {
-  initialRenderAllEvents();
+  renderAllEvents();
 });
 
 // Initial Render
